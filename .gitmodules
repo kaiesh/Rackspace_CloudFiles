@@ -1,0 +1,3 @@
+[submodule "site-online/web/lib"]
+	path = site-online/web/lib/php-opencloud
+	url = https://github.com/rackspace/php-opencloud.git
