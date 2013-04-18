@@ -39,6 +39,7 @@ class RackspaceHelper{
 	 * array("status" => true | false, //true if upload success, false otherwise
 	 *       "url" => "<URL>", //static URL only returned if successful
 	 *       "cdn" => "<URL>", //CDN URL returned if successful
+	 *       "hash" => "<hash>", //Hash name of file, useful if using custom CNAME
 	 *       "err" => "<Exception details>") //only returned if failed
 	 **/
 	function upload_file_get_url($detailsArr){
@@ -51,7 +52,8 @@ class RackspaceHelper{
 			
 			return array("status"=>true,
 						 "url"=>$obj->PublicURL(),
-						 "cdn"=>$obj->CDNUrl());
+						 "cdn"=>$obj->CDNUrl(),
+						 "hash"=>$obj->hash);
 		}catch (Exception $e){
 			return array("status"=>false,
 						 "err"=>$e->getMessage());
